@@ -11,9 +11,9 @@ version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/githubuser/haskell-testing-library#readme>
 homepage:       https://github.com/githubuser/haskell-testing-library#readme
 bug-reports:    https://github.com/githubuser/haskell-testing-library/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2021 Author name here
+author:         Andy Walpole
+maintainer:     me@andywalpole.me
+copyright:      2021 Andy Walpole
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -59,4 +59,5 @@ test-suite haskell-testing-library-test
   build-depends:
       base >=4.7 && <5
     , haskell-testing-library
+    , QuickCheck
   default-language: Haskell2010
