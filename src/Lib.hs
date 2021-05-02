@@ -1,6 +1,16 @@
-module Lib
-    ( someFunc
-    ) where
+module Lib (
+    foo1,
+    foo2
+) where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+foo1 :: Num a => a -> a -> a
+foo1 a b = a * b
+
+foo2 :: Num a => a -> a -> a
+foo2 a b = a - b
+
+
+
+
+
+

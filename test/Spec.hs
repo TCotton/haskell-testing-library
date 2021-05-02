@@ -3,6 +3,7 @@ import Test.QuickCheck ( quickCheckAll )
 import Test.QuickCheck.All () 
 import Data.List (intersperse)
 import System.Exit(exitSuccess, exitFailure)
+import Lib
 
 prop_revapp :: [Int] -> [Int] -> Bool
 prop_revapp xs ys = reverse (xs++xs) == reverse xs ++ reverse xs
