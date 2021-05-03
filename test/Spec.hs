@@ -21,9 +21,24 @@ unsplit c = concat . intersperse [c]
 prop_split_inv :: Char -> String -> Bool
 prop_split_inv c xs = unsplit c (split c xs) == xs
 
-return []
-runTests :: IO Bool
-runTests = $quickCheckAll
+--return []
+--runTests :: IO Bool
+--runTests = $quickCheckAll
+
+assert :: Bool -> String -> String -> IO ()
+assert test passStatement failStatement = if test
+                                          then putStrLn passStatement
+                                          else putStrLn failStatement
 
 main :: IO ()
-main = runTests >>= \passed -> if passed then exitSuccess else exitFailure
+main = do
+  putStrLn "Running tests..."
+  assert (isPalindrome "racecar") "passed 'racecar'" "FAIL: 'racecar'"
+  assert (isPalindrome "racecar!") "passed 'racecar!'" "FAIL: 'racecar!'"
+  assert ((not . isPalindrome) "cat") "passed 'cat'" "FAIL: 'cat'"
+  assert (isPalindrome "racecar.") "passed 'racecar.'" "FAIL: 'racecar.'"
+  assert (isPalindrome ":racecar:") "passed ':racecar:'" "FAIL: ':racecar:'"
+  putStrLn "done!"
+
+--main :: IO ()
+--main = runTests >>= \passed -> if passed then exitSuccess else exitFailure
